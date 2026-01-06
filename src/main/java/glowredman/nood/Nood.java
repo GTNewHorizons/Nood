@@ -8,6 +8,7 @@ import net.minecraftforge.client.ClientCommandHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -16,6 +17,7 @@ import cpw.mods.fml.common.event.FMLMissingMappingsEvent.MissingMapping;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry.Type;
+import glowredman.nood.compat.ThaumcraftCompat;
 
 @Mod(acceptedMinecraftVersions = "1.7.10", modid = Nood.MODID, name = "Nood", version = Tags.VERSION)
 public class Nood {
@@ -44,6 +46,9 @@ public class Nood {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        if (Loader.isModLoaded("Thaumcraft")) {
+            ThaumcraftCompat.init();
+        }
     }
 
     @EventHandler
