@@ -1,4 +1,4 @@
-package glowredman.nood;
+package glowredman.nood.worldgen;
 
 import java.util.Random;
 
@@ -7,6 +7,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import glowredman.nood.NoodBlocks;
 
 public class WorldGenNetherTree extends WorldGenAbstractTree {
 

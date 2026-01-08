@@ -18,7 +18,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import glowredman.nood.WorldGenNetherTree;
+import glowredman.nood.worldgen.WorldGenNetherTree;
 
 public class BlockNetherSapling extends BlockSapling {
 

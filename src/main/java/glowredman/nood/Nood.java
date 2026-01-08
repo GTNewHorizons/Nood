@@ -16,8 +16,12 @@ import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent.MissingMapping;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.GameRegistry.Type;
 import glowredman.nood.compat.ThaumcraftCompat;
+import glowredman.nood.worldgen.WorldGenNetherFlowers;
+import glowredman.nood.worldgen.WorldGenNetherTree;
+import glowredman.nood.worldgen.WorldGeneratorNether;
 
 @Mod(acceptedMinecraftVersions = "1.7.10", modid = Nood.MODID, name = "Nood", version = Tags.VERSION)
 public class Nood {
@@ -54,7 +58,25 @@ public class Nood {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         NoodRecipes.init();
-        // TODO register world gen
+        if (NoodConfig.gardenRarity > 0) {
+            GameRegistry.registerWorldGenerator(
+                new WorldGeneratorNether(
+                    NoodConfig.gardenRarity,
+                    new WorldGenNetherFlowers(false, NoodBlocks.blockNetherGarden)),
+                0);
+        }
+        if (NoodConfig.glowFlowerRarity > 0) {
+            GameRegistry.registerWorldGenerator(
+                new WorldGeneratorNether(
+                    NoodConfig.glowFlowerRarity,
+                    new WorldGenNetherFlowers(false, NoodBlocks.blockGlowFlower)),
+                0);
+        }
+        if (NoodConfig.treeRarity > 0) {
+            GameRegistry.registerWorldGenerator(
+                new WorldGeneratorNether(NoodConfig.treeRarity, new WorldGenNetherTree(false)),
+                0);
+        }
     }
 
     @EventHandler
