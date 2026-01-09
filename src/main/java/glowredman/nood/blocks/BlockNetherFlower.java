@@ -84,7 +84,7 @@ public class BlockNetherFlower extends BlockFlower {
 
         int newX = x + random.nextInt(3) - 1;
         int newY = y + random.nextInt(1) - random.nextInt(1);
-        int newZ = x + random.nextInt(3) - 1;
+        int newZ = z + random.nextInt(3) - 1;
         for (int i = 0; i < 4; i++) {
             if (worldIn.isAirBlock(newX, newY, newZ) && this.canBlockStay(worldIn, newX, newY, newZ)) {
                 x = newX;
@@ -93,10 +93,10 @@ public class BlockNetherFlower extends BlockFlower {
             }
             newX = x + random.nextInt(3) - 1;
             newY = y + random.nextInt(1) - random.nextInt(1);
-            newZ = x + random.nextInt(3) - 1;
+            newZ = z + random.nextInt(3) - 1;
         }
         if (worldIn.isAirBlock(newX, newY, newZ) && this.canBlockStay(worldIn, newX, newY, newZ)) {
-            worldIn.setBlock(newX, y, z, this, 0, 3);
+            worldIn.setBlock(newX, newY, newZ, this, 0, 3);
         }
     }
 
